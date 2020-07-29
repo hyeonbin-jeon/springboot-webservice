@@ -10,13 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Getter
-@NoArgsConstructor
-@Entity
+@Getter  // 룸복 (Getter 메소드 자동생성)
+@NoArgsConstructor  // 룸복 (기본 생성자 추가)
+@Entity  //JPA 어노테이션 (테이블과 링크될 클래스임을 나타냄)
 public class Posts {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType.IDENTITY : auto_increment
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -27,7 +27,7 @@ public class Posts {
 
     private String author;
 
-    @Builder
+    @Builder //해당 클래스의 빌더 패턴 클래스를 생성, 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
