@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
-
+    //JUnit에서 단위 테스트가 끝날 때마다 수행되는 메소드 지정
     @After
     public void cleanup() {
         /**
@@ -44,7 +44,7 @@ public class PostsRepositoryTest {
                 .build());
 
         //when
-        //테이블posts에 있는 모든 데이터를 조회회
+        //테이블posts에 있는 모든 데이터를 조회
        List<Posts> postsList = postsRepository.findAll();
 
         //then
