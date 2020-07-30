@@ -1,5 +1,6 @@
 package com.hyeon.springbootwebservice.domain.posts;
 
+import com.hyeon.springbootwebservice.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @Getter  // 룸복 (Getter 메소드 자동생성)
 @NoArgsConstructor  // 룸복 (기본 생성자 추가)
 @Entity  //JPA 어노테이션 (테이블과 링크될 클래스임을 나타냄)
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType.IDENTITY : auto_increment
@@ -32,5 +33,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 }
