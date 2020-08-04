@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Getter  // 룸복 (Getter 메소드 자동생성)
 @NoArgsConstructor  // 룸복 (기본 생성자 추가)
 @Entity  //JPA 어노테이션 (테이블과 링크될 클래스임을 나타냄)
-//@DynamicUpdate 이거 붙이면 5개 업데이터 쳐주던거 update메소드에 있는거만 업데이트 쳐주기는 하는데 modified_date도 쳐주는데 왜인지 확인해보기
+@DynamicUpdate //이거 붙이면 5개 업데이터 쳐주던거 update메소드에 있는거만 업데이트 쳐주기는 하는데 modified_date도 쳐주는데 왜인지 확인해보기
 
 public class Posts extends BaseTimeEntity {
 
