@@ -25,6 +25,7 @@ public class PostsService {
     }
 //더티 체킹으로 생성되는 모든 update문의 쿼리는 기본적으로 모든 필드를 업데이트 함
     //부분적인 필드만 update치고싶으면 @DynamicUpdate로 변경된 필드만 반열할 수도 있음
+
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new
@@ -33,6 +34,15 @@ public class PostsService {
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
+    }
+
+    @Transactional
+    public void delete (Long id){
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(()->new
+                        IllegalArgumentException("해당 게시글이 없습니다. id =" + id));
+
+        postsRepository.delete(posts);
     }
 
     public PostsResponseDto findById (Long id){
